@@ -1,4 +1,4 @@
-package org.example.files;
+package org.proxy.files;
 
 import java.util.UUID;
 

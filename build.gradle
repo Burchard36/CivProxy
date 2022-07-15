@@ -9,7 +9,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 jar {
     manifest {
-        attributes 'Main-Class': 'civ.game.auth.Main'
+        attributes 'Main-Class': 'civ.proxy.Main'
     }
 }
 

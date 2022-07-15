@@ -1,8 +1,8 @@
-package org.example.socket.actions;
+package org.proxy.socket.actions;
 
 import org.example.socket.action.SocketAction;
 import org.example.socket.interfaces.ActionHandler;
-import org.example.socket.packets.incoming.GameServerLinkObject;
+import org.proxy.socket.packets.incoming.GameServerLinkObject;
 import org.example.socket.user.ConnectedClient;
 
 public class GameServerLinkAction extends SocketAction {

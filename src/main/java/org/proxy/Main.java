@@ -1,7 +1,8 @@
-package org.example;
+package org.proxy;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
+import org.example.InstanceRunner;
 import org.slf4j.LoggerFactory;
 
 public class Main {

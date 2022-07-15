@@ -1,4 +1,4 @@
-package org.example.socket.packets.incoming;
+package org.proxy.socket.packets.incoming;
 
 public class GameServerLinkObject {
 

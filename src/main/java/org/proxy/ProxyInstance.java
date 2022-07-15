@@ -1,12 +1,13 @@
-package org.example;
+package org.proxy;
 
 import io.github.ludovicianul.prettylogger.PrettyLogger;
-import org.example.files.GameServerConfigs;
+import org.example.Instance;
+import org.proxy.files.GameServerConfigs;
 import org.example.socket.AsyncServerSocket;
-import org.example.socket.actions.GameServerLinkAction;
+import org.proxy.socket.actions.GameServerLinkAction;
 import org.example.utils.Loggable;
 
-public class ProxyInstance extends Instance{
+public class ProxyInstance extends Instance {
 
     protected Loggable loggable;
     protected PrettyLogger log;
