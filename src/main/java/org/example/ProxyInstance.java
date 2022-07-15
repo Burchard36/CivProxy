@@ -1,6 +1,7 @@
 package org.example;
 
 import io.github.ludovicianul.prettylogger.PrettyLogger;
+import org.example.files.GameServerConfigs;
 import org.example.socket.AsyncServerSocket;
 import org.example.socket.actions.GameServerLinkAction;
 import org.example.utils.Loggable;
@@ -10,6 +11,7 @@ public class ProxyInstance extends Instance{
     protected Loggable loggable;
     protected PrettyLogger log;
     protected AsyncServerSocket serverSocket;
+    protected GameServerConfigs configs;
 
     protected ProxyInstance() {
         super("ProxyInstance");
@@ -21,6 +23,7 @@ public class ProxyInstance extends Instance{
         this.log = this.loggable.logger();
         this.loggable.startAsync("Startup");
         this.log.start("Initializing ProxyInstance ...");
+        this.configs = new GameServerConfigs();
 
         this.serverSocket = new AsyncServerSocket(8708);
 

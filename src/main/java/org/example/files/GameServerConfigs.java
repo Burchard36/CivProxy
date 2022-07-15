@@ -4,12 +4,14 @@ package org.example.files;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.ludovicianul.prettylogger.PrettyLogger;
+import lombok.Getter;
 import org.example.utils.Loggable;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.file.Files;
 
 public class GameServerConfigs {
 
@@ -17,12 +19,20 @@ public class GameServerConfigs {
     protected final Loggable loggable;
     protected final PrettyLogger log;
     public static GameServerConfigs GAME_CONFIGS;
+    @Getter
+    protected GameServerConfig configs;
 
     public GameServerConfigs() {
         GAME_CONFIGS = this;
         this.gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
         this.loggable = new Loggable(this.getClass());
         this.log = loggable.logger();
+        this.log.info("Loading game-configs.json file...");
+        try {
+            this.loadGameConfigs();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     protected void loadGameConfigs() throws IOException {
@@ -44,8 +54,10 @@ public class GameServerConfigs {
             writer.append(fileString);
             writer.close();
             this.log.success("Successfully created game-configs.json file with default configurations!");
+        } else {
+            this.configs = this.gson.fromJson(Files.newBufferedReader(gameConfigsFile.toPath()), GameServerConfig.class);
+            this.log.success("Successfully loaded game-configs.json file!");
         }
-
     }
 
 }
