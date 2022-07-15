@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+}
+
+jar.enabled = false
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+jar {
+    manifest {
+        attributes 'Main-Class': 'civ.game.auth.Main'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+shadowJar {
+    archiveName("server.jar")
+}
+
+artifacts {
+    shadowJar;
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    implementation 'com.github.ludovicianul:pl4j:pretty-logger-1.9'
+    implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.22.0'
+    implementation 'com.google.apis:google-api-services-oauth2:v2-rev20200213-1.32.1'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+build.dependsOn(shadowJar);
