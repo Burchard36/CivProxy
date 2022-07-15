@@ -19,7 +19,7 @@ public class ProxyInstance extends Instance {
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         this.loggable = new Loggable(this.getClass());
         this.log = this.loggable.logger();
         this.loggable.startAsync("Startup");
@@ -39,12 +39,12 @@ public class ProxyInstance extends Instance {
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
 
     }
 
     @Override
-    protected void onSave() {
+    public void onSave() {
 
     }
 }
