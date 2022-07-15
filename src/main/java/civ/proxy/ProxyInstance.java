@@ -1,10 +1,10 @@
-package org.proxy;
+package civ.proxy;
 
+import civ.proxy.files.GameServerConfigs;
 import io.github.ludovicianul.prettylogger.PrettyLogger;
 import org.example.Instance;
-import org.proxy.files.GameServerConfigs;
 import org.example.socket.AsyncServerSocket;
-import org.proxy.socket.actions.GameServerLinkAction;
+import civ.proxy.socket.actions.GameServerLinkAction;
 import org.example.utils.Loggable;
 
 public class ProxyInstance extends Instance {
