@@ -14,7 +14,7 @@ public class ProxyInstance extends Instance {
     protected AsyncServerSocket serverSocket;
     protected GameServerConfigs configs;
 
-    protected ProxyInstance() {
+    public ProxyInstance() {
         super("ProxyInstance");
     }
 
