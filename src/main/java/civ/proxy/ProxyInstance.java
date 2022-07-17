@@ -28,6 +28,13 @@ public class ProxyInstance extends Instance {
             final String time = this.loggable.prettyAsyncMilliElapsed("Startup");
             this.log.complete("Successfully started ProxyInstance! (Completed in %s)"
                     .formatted(time));
+
+            /*loggable.startAsync("Timer");
+            for (int x = 0; x < 1000000; x++) {
+                log.info("FOREVER LOOPING ON " + x  );
+            }
+            log.complete("Took %s"
+                    .formatted(loggable.complete("Timer")));*/
         });
     }
 
