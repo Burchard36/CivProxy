@@ -31,10 +31,11 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     implementation 'com.github.ludovicianul:pl4j:pretty-logger-1.9'
-    implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.22.0'
-    implementation 'com.google.apis:google-api-services-oauth2:v2-rev20200213-1.32.1'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'info.picocli:picocli:4.6.3'
+    annotationProcessor 'info.picocli:picocli-codegen:4.6.3'
+    implementation group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.45'
 }
 
 build.dependsOn(shadowJar);

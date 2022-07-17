@@ -36,7 +36,7 @@ public class GameServerConfigs {
     }
 
     protected void loadGameConfigs() throws IOException {
-        final File configDirectory = new File("/configs");
+        final File configDirectory = new File(System.getProperty("user.dir"), "/configs");
         if (!configDirectory.exists()) {
             if (configDirectory.mkdir()) {
                 this.log.success("Successfully created /configs directory!");
@@ -58,6 +58,15 @@ public class GameServerConfigs {
             this.configs = this.gson.fromJson(Files.newBufferedReader(gameConfigsFile.toPath()), GameServerConfig.class);
             this.log.success("Successfully loaded game-configs.json file!");
         }
+    }
+
+    public Config getConfigFor(String sererId) {
+        for (Config config : this.configs.configs) {
+            if (config.serverId.equalsIgnoreCase(sererId)) {
+                return config;
+            }
+        }
+        return null;
     }
 
 }
